@@ -20,8 +20,9 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { BioPageContent, SocialLink, UrlLink } from "@/lib/types";
 
-export default function HomePage({ content }: { content: any }) {
+export default function HomePage({ content }: { content: BioPageContent }) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -101,7 +102,7 @@ export default function HomePage({ content }: { content: any }) {
           </motion.div>
         </CardHeader>
         <CardContent className="space-y-4 relative z-10">
-          {content.links.map((link: any, index: number) => (
+          {content.links.map((link: UrlLink, index: number) => (
             <motion.div key={index} variants={itemVariants}>
               <Button
                 asChild
@@ -131,7 +132,7 @@ export default function HomePage({ content }: { content: any }) {
         </CardContent>
         <CardFooter>
           <div className="flex justify-center space-x-4 w-full">
-            {content.socialLinks.map((link: any, index: number) => {
+            {content.socialLinks.map((link: SocialLink, index: number) => {
               const Icon =
                 {
                   Twitter: Twitter,
